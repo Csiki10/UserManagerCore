@@ -12,9 +12,9 @@ namespace UserManagerCore.Repositories
     {
         private readonly string file_path = Path.Combine(Directory.GetCurrentDirectory(), "Data", "users.txt");
 
-        public List<User> ReadUsersFromFile()
+        public List<UserModel> ReadUsersFromFile()
         {
-            var users = new List<User>();
+            var users = new List<UserModel>();
 
             if (!System.IO.File.Exists(file_path))
             {
@@ -27,7 +27,7 @@ namespace UserManagerCore.Repositories
             {
                 var parts = line.Split(';');
 
-                users.Add(new User
+                users.Add(new UserModel
                 {
                     ID = int.Parse(parts[0]),
                     Username = parts[1],
@@ -41,6 +41,24 @@ namespace UserManagerCore.Repositories
             }
 
             return users;
+        }
+
+        public UserModel GetUser(int id)
+        {
+            if (id == null)
+            {
+                throw new Exception("The id is null!");
+            }
+
+            var users = ReadUsersFromFile();
+            var user = users.SingleOrDefault(x => x.ID == id);
+
+            if (user == null)
+            {
+                throw new Exception("User not found with id: " + id);
+            }
+
+            return user;
         }
 
         public LoginResult LoginUser(string userName, string password)
@@ -82,11 +100,18 @@ namespace UserManagerCore.Repositories
             };
         }
 
+        public void SaveUsersToFile(List<UserModel> users)
+        {
+            var lines = users.Select(u => $"{u.ID};{u.Username};{u.Password};{u.LastName};{u.FirstName};{u.DateOfBirth:yyyy-MM-dd};{u.PlaceOfBirth};{u.PlaceOfResidence}");
+
+            System.IO.File.WriteAllLines(file_path, lines);
+        }
+
         public void SaveToXml()
         {
             var users = ReadUsersFromFile();
 
-            var serializer = new XmlSerializer(typeof(List<User>));
+            var serializer = new XmlSerializer(typeof(List<UserModel>));
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "users.xml");
 
             using (var writer = new StreamWriter(filePath))

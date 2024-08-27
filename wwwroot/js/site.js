@@ -35,4 +35,16 @@ $(document).ready(function () {
             }
         });
     });
+
+    $("#editUserBtn").click(function () {
+        var grid = $("#usersGrid").data("kendoGrid");
+        var selectedItem = grid.dataItem(grid.select());
+
+        if (selectedItem) {
+            var userId = selectedItem.ID;
+            window.location.href = `Users/Edit?id=${userId}`;
+        } else {
+            alert("Please select a user to edit.");
+        }
+    });
 });

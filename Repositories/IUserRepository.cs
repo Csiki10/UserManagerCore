@@ -5,8 +5,10 @@ namespace UserManagerCore.Repositories
 {
     public interface IUserRepository
     {
+        UserModel GetUser(int id);
         LoginResult LoginUser(string userName, string password);
-        List<User> ReadUsersFromFile();
+        List<UserModel> ReadUsersFromFile();
         void SaveToXml();
+        void SaveUsersToFile(List<UserModel> users);
     }
 }

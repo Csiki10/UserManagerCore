@@ -1,6 +1,6 @@
 ﻿namespace UserManagerCore.Models
 {
-    public class User
+    public class UserModel
     {
         public int ID { get; set; }
         public string Username { get; set; }

@@ -1,0 +1,53 @@
+﻿@model UserManagerCore.ViewModels.EditUserViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<h2>Edit User</h2>
+
+@(Html.Kendo().Form<UserManagerCore.ViewModels.EditUserViewModel>()
+    .Name("editForm")
+    .HtmlAttributes(new { action = "Edit", method = "post" })
+    .Validatable(v =>
+        {
+            v.ValidateOnBlur(true);
+            v.ValidationSummary(vs => vs.Enable(false));
+        })
+    .Items(items =>
+    {
+        items.AddGroup().Items(i =>
+        {
+            i.Add().Field(f => f.ID)
+                .Editor(e => e.Hidden());
+            i.Add()
+                .Field(f => f.Username)
+                .Label(l => l.Text("Username:"));
+
+            i.Add()
+                .Field(f => f.LastName)
+                .Label(l => l.Text("Last Name:"));
+
+            i.Add()
+                .Field(f => f.FirstName)
+                .Label(l => l.Text("First Name:"));
+
+            i.Add()
+                .Field(f => f.DateOfBirth)
+                .Editor(e => e.DatePicker())  // Use Kendo DatePicker for date input
+                .Label(l => l.Text("Date of Birth:"));
+
+            i.Add()
+                .Field(f => f.PlaceOfBirth)
+                .Label(l => l.Text("Place of Birth:"));
+
+            i.Add()
+                .Field(f => f.PlaceOfResidence)
+                .Label(l => l.Text("Place of Residence:"));
+        });
+    })
+)
+
+@* @section Scripts {
+    @(Html.Kendo().Validator().For("#editForm"))
+} *@

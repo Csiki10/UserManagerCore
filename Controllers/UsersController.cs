@@ -96,6 +96,76 @@ namespace UserManagerCore.Controllers
             
         }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            try
+            {
+                var user = _userRepository.GetUser(id);
+
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                var model = new EditUserViewModel
+                {
+                    ID = user.ID,
+                    Username = user.Username,
+                    LastName = user.LastName,
+                    FirstName = user.FirstName,
+                    DateOfBirth = user.DateOfBirth,
+                    PlaceOfBirth = user.PlaceOfBirth,
+                    PlaceOfResidence = user.PlaceOfResidence
+                };
+
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index", "Users");
+            }
+            
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditUserViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                // todo refactore edit
+                var users = _userRepository.ReadUsersFromFile();
+                var user = users.SingleOrDefault(x => x.ID == model.ID);
+
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                user.Username = model.Username;
+                user.LastName = model.LastName;
+                user.FirstName = model.FirstName;
+                user.DateOfBirth = model.DateOfBirth;
+                user.PlaceOfBirth = model.PlaceOfBirth;
+                user.PlaceOfResidence = model.PlaceOfResidence;
+
+                _userRepository.SaveUsersToFile(users);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index", "Users");
+            }      
+        }
+
         public IActionResult Users_Read([DataSourceRequest] DataSourceRequest request)
         {
             var users = _userRepository.ReadUsersFromFile();
