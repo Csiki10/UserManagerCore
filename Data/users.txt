@@ -1,0 +1,10 @@
+1;jdoe;password123;Doe;John;1985-07-15;New York;Los Angeles
+2;asmith;password456;Smith;Alice;1990-03-22;Chicago;San Francisco
+3;bjones;password789;Jones;Bob;1978-11-30;Houston;Dallas
+4;cmiller;passwordabc;Miller;Catherine;1995-01-05;Philadelphia;New York
+5;djohnson;passworddef;Johnson;David;1982-08-18;Phoenix;Seattle
+6;ewilson;passwordghi;Wilson;Emily;1987-09-25;San Antonio;Austin
+7;fwhite;passwordjkl;White;Frank;1992-04-12;San Diego;Miami
+8;glong;passwordmno;Long;Grace;1975-06-30;Boston;Portland
+9;hmorris;passwordpqr;Morris;Hannah;2000-12-07;Denver;Las Vegas
+10;imartin;passwordstu;Martin;Isaac;1998-10-15;Detroit;Atlanta

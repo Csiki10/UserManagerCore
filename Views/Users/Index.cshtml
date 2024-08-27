@@ -1,0 +1,28 @@
+﻿@using UserManagerCore.Models
+@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Users";
+}
+
+@(Html.Kendo().Grid<User>()
+      .Name("usersGrid")
+      .Columns(columns =>
+      {
+          columns.Bound(u => u.ID).Title("ID").Width(50);
+          columns.Bound(u => u.Username).Title("Username");
+          columns.Bound(u => u.LastName).Title("Last Name");
+          columns.Bound(u => u.FirstName).Title("First Name");
+          columns.Bound(u => u.DateOfBirth).Title("Date of Birth").Format("{0:yyyy-MM-dd}");
+          columns.Bound(u => u.PlaceOfBirth).Title("Place of Birth");
+          columns.Bound(u => u.PlaceOfResidence).Title("Place of Residence");
+      })
+      .Pageable()  // Enables pagination
+      .Sortable()  // Enables sorting
+      .Filterable() // Enables filtering
+      .HtmlAttributes(new { style = "height: 400px;" })
+      .DataSource(dataSource => dataSource
+          .Ajax()  // Use Ajax for data binding
+          .PageSize(10)
+          .Read(read => read.Action("Users_Read", "Users"))
+      )
+)

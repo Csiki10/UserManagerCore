@@ -1,0 +1,35 @@
+﻿@using UserManagerCore.ViewModels
+@model UserManagerCore.ViewModels.LoginViewModel
+@{
+    Layout = "_MinimalLayout";
+}
+<div class="text-center mt-5" >
+    <h2>Login</h2>
+
+    @using Kendo.Mvc.UI
+
+    <div id="validation-success"></div>
+    @(Html.Kendo().Form<UserManagerCore.ViewModels.LoginViewModel>()
+        .Name("loginForm")
+        .HtmlAttributes(new { action = "Login", method = "POST" })
+        .Validatable(v =>
+        {
+            v.ValidateOnBlur(true);
+            v.ValidationSummary(vs => vs.Enable(false));
+        })
+        .Items(items =>
+        {
+            items.AddGroup()
+            .Items(i =>
+            {
+                i.Add()
+            .Field(f => f.Username)
+            .Label(l => l.Text("User name:"));
+                i.Add()
+            .Field(f => f.Password)
+            .InputHtmlAttributes(new { type = "password" })
+            .Label(l => l.Text("Password:"));
+            });
+        })
+    )
+</div>
