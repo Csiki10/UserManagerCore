@@ -3,6 +3,7 @@ using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Globalization;
+using System.Xml.Serialization;
 using UserManagerCore.Helpers;
 using UserManagerCore.Repositories;
 using UserManagerCore.ViewModels;
@@ -75,6 +76,24 @@ namespace UserManagerCore.Controllers
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Login", "Users");
+        }
+
+        [HttpPost]
+        public IActionResult SaveToXml()
+        {
+            try
+            {
+                _userRepository.SaveToXml();
+                return Ok();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                return RedirectToAction("Index", "Users");
+            }
+
+            
         }
 
         public IActionResult Users_Read([DataSourceRequest] DataSourceRequest request)

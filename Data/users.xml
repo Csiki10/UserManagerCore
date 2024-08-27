@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <User>
+    <ID>1</ID>
+    <Username>jdoe</Username>
+    <Password>password123</Password>
+    <LastName>Doe</LastName>
+    <FirstName>John</FirstName>
+    <DateOfBirth>1985-07-15T00:00:00</DateOfBirth>
+    <PlaceOfBirth>New York</PlaceOfBirth>
+    <PlaceOfResidence>Los Angeles</PlaceOfResidence>
+  </User>
+  <User>
+    <ID>2</ID>
+    <Username>asmith</Username>
+    <Password>password456</Password>
+    <LastName>Smith</LastName>
+    <FirstName>Alice</FirstName>
+    <DateOfBirth>1990-03-22T00:00:00</DateOfBirth>
+    <PlaceOfBirth>Chicago</PlaceOfBirth>
+    <PlaceOfResidence>San Francisco</PlaceOfResidence>
+  </User>
+  <User>
+    <ID>3</ID>
+    <Username>bjones</Username>
+    <Password>password789</Password>
+    <LastName>Jones</LastName>
+    <FirstName>Bob</FirstName>
+    <DateOfBirth>1978-11-30T00:00:00</DateOfBirth>
+    <PlaceOfBirth>Houston</PlaceOfBirth>
+    <PlaceOfResidence>Dallas</PlaceOfResidence>
+  </User>
+  <User>
+    <ID>4</ID>
+    <Username>cmiller</Username>
+    <Password>passwordabc</Password>
+    <LastName>Miller</LastName>
+    <FirstName>Catherine</FirstName>
+    <DateOfBirth>1995-01-05T00:00:00</DateOfBirth>
+    <PlaceOfBirth>Philadelphia</PlaceOfBirth>
+    <PlaceOfResidence>New York</PlaceOfResidence>
+  </User>
+  <User>
+    <ID>5</ID>
+    <Username>djohnson</Username>
+    <Password>passworddef</Password>
+    <LastName>Johnson</LastName>
+    <FirstName>David</FirstName>
+    <DateOfBirth>1982-08-18T00:00:00</DateOfBirth>
+    <PlaceOfBirth>Phoenix</PlaceOfBirth>
+    <PlaceOfResidence>Seattle</PlaceOfResidence>
+  </User>
+  <User>
+    <ID>6</ID>
+    <Username>ewilson</Username>
+    <Password>passwordghi</Password>
+    <LastName>Wilson</LastName>
+    <FirstName>Emily</FirstName>
+    <DateOfBirth>1987-09-25T00:00:00</DateOfBirth>
+    <PlaceOfBirth>San Antonio</PlaceOfBirth>
+    <PlaceOfResidence>Austin</PlaceOfResidence>
+  </User>
+  <User>
+    <ID>7</ID>
+    <Username>fwhite</Username>
+    <Password>passwordjkl</Password>
+    <LastName>White</LastName>
+    <FirstName>Frank</FirstName>
+    <DateOfBirth>1992-04-12T00:00:00</DateOfBirth>
+    <PlaceOfBirth>San Diego</PlaceOfBirth>
+    <PlaceOfResidence>Miami</PlaceOfResidence>
+  </User>
+  <User>
+    <ID>8</ID>
+    <Username>glong</Username>
+    <Password>passwordmno</Password>
+    <LastName>Long</LastName>
+    <FirstName>Grace</FirstName>
+    <DateOfBirth>1975-06-30T00:00:00</DateOfBirth>
+    <PlaceOfBirth>Boston</PlaceOfBirth>
+    <PlaceOfResidence>Portland</PlaceOfResidence>
+  </User>
+  <User>
+    <ID>9</ID>
+    <Username>hmorris</Username>
+    <Password>passwordpqr</Password>
+    <LastName>Morris</LastName>
+    <FirstName>Hannah</FirstName>
+    <DateOfBirth>2000-12-07T00:00:00</DateOfBirth>
+    <PlaceOfBirth>Denver</PlaceOfBirth>
+    <PlaceOfResidence>Las Vegas</PlaceOfResidence>
+  </User>
+  <User>
+    <ID>10</ID>
+    <Username>imartin</Username>
+    <Password>passwordstu</Password>
+    <LastName>Martin</LastName>
+    <FirstName>Isaac</FirstName>
+    <DateOfBirth>1998-10-15T00:00:00</DateOfBirth>
+    <PlaceOfBirth>Detroit</PlaceOfBirth>
+    <PlaceOfResidence>Atlanta</PlaceOfResidence>
+  </User>
+</ArrayOfUser>

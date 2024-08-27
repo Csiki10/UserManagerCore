@@ -3,7 +3,9 @@
 @{
     ViewData["Title"] = "Users";
 }
-
+<div class="form-group">
+    <input class="form-control grid-search mb-2" type="search" name="name" value="" placeholder="Search for user..." />
+</div>
 @(Html.Kendo().Grid<User>()
       .Name("usersGrid")
       .Columns(columns =>
@@ -16,13 +18,59 @@
           columns.Bound(u => u.PlaceOfBirth).Title("Place of Birth");
           columns.Bound(u => u.PlaceOfResidence).Title("Place of Residence");
       })
-      .Pageable()  // Enables pagination
-      .Sortable()  // Enables sorting
-      .Filterable() // Enables filtering
-      .HtmlAttributes(new { style = "height: 400px;" })
+      .Pageable() 
+      .Sortable()  
+      .Filterable() 
+      .Scrollable()
       .DataSource(dataSource => dataSource
-          .Ajax()  // Use Ajax for data binding
+          .Ajax()
           .PageSize(10)
           .Read(read => read.Action("Users_Read", "Users"))
       )
 )
+<div class="form-group mt-2 text-end">
+    <button id="saveToXmlBtn" class="btn btn-primary mb-2">Save to XML</button>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var searchInput = $('.grid-search');
+
+            searchInput.on('keyup', function() {
+                var query = $(this).val();
+                console.log(query)
+
+                if (query.length >= 3 || query.length === 0) {
+
+                    var grid = $("#usersGrid").data("kendoGrid");
+                    grid.dataSource.filter({
+                        logic: "or",
+                        filters: [
+                            { field: "Username", operator: "contains", value: query },
+                            { field: "LastName", operator: "contains", value: query },
+                            { field: "FirstName", operator: "contains", value: query },
+                            { field: "PlaceOfBirth", operator: "contains", value: query },
+                            { field: "PlaceOfResidence", operator: "contains", value: query },
+                            //{ field: "DateOfBirth", operator: "eq", value: query }
+                        ]
+                    });
+                }
+            });
+
+            $("#saveToXmlBtn").on("click", function () {
+                $.ajax({
+                    url: '@Url.Action("SaveToXml", "Users")',
+                    type: 'POST',
+                    success: function () {
+                        alert("Data saved to XML successfully.");
+                    },
+                    error: function () {
+                        alert("Error saving data to XML.");
+                    }
+                });
+            });
+        });
+    </script>
+}

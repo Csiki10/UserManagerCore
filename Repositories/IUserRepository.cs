@@ -7,5 +7,6 @@ namespace UserManagerCore.Repositories
     {
         LoginResult LoginUser(string userName, string password);
         List<User> ReadUsersFromFile();
+        void SaveToXml();
     }
 }

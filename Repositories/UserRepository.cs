@@ -10,7 +10,7 @@ namespace UserManagerCore.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly string file_path = Path.Combine(Directory.GetCurrentDirectory(), "Data/users.txt");
+        private readonly string file_path = Path.Combine(Directory.GetCurrentDirectory(), "Data", "users.txt");
 
         public List<User> ReadUsersFromFile()
         {
@@ -82,5 +82,17 @@ namespace UserManagerCore.Repositories
             };
         }
 
+        public void SaveToXml()
+        {
+            var users = ReadUsersFromFile();
+
+            var serializer = new XmlSerializer(typeof(List<User>));
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "users.xml");
+
+            using (var writer = new StreamWriter(filePath))
+            {
+                serializer.Serialize(writer, users);
+            }
+        }
     }
 }
