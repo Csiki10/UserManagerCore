@@ -10,18 +10,18 @@ namespace UserManagerCore.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly string file_path = Path.Combine(Directory.GetCurrentDirectory(), "Data", "users.txt");
+        private readonly string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "users.txt");
 
         public List<UserModel> ReadUsersFromFile()
         {
             var users = new List<UserModel>();
 
-            if (!System.IO.File.Exists(file_path))
+            if (!System.IO.File.Exists(filePath))
             {
                 throw new Exception("Users file nor exists!");
             }
 
-            var lines = System.IO.File.ReadAllLines(file_path);
+            var lines = System.IO.File.ReadAllLines(filePath);
 
             foreach (var line in lines)
             {
@@ -45,7 +45,7 @@ namespace UserManagerCore.Repositories
 
         public UserModel GetUser(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 throw new Exception("The id is null!");
             }
@@ -99,7 +99,7 @@ namespace UserManagerCore.Repositories
         {
             var lines = users.Select(u => $"{u.ID};{u.Username};{u.Password};{u.LastName};{u.FirstName};{u.DateOfBirth:yyyy-MM-dd};{u.PlaceOfBirth};{u.PlaceOfResidence}");
 
-            System.IO.File.WriteAllLines(file_path, lines);
+            System.IO.File.WriteAllLines(filePath, lines);
         }
 
         public void SaveToXml()
