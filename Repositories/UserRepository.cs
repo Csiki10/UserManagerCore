@@ -65,12 +65,7 @@ namespace UserManagerCore.Repositories
         {
             if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
             {
-                return new LoginResult
-                {
-                    State = LoginState.Error,
-                    Error = "userName or password is null or empty in LoginUser!"
-                };
-
+                throw new Exception("userName or password is null or empty in LoginUser!");
             }
 
             var users = ReadUsersFromFile();
@@ -80,8 +75,8 @@ namespace UserManagerCore.Repositories
             {
                 return new LoginResult
                 {
-                    State = LoginState.Invalid,
-                    Error = "No user found with username: " + userName
+                    State = LoginState.InvalidUserName,
+                    Error = "Invalid username!"
                 };
             }
 
@@ -89,7 +84,7 @@ namespace UserManagerCore.Repositories
             {
                 return new LoginResult
                 {
-                    State = LoginState.Invalid,
+                    State = LoginState.InvalidPassword,
                     Error = "Invalid password!"
                 };
             }

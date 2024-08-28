@@ -42,9 +42,9 @@
   </UserModel>
   <UserModel>
     <ID>5</ID>
-    <Username>djohnson11</Username>
+    <Username>jonny</Username>
     <Password>passworddef</Password>
-    <LastName>Johnson11</LastName>
+    <LastName>Johnson</LastName>
     <FirstName>David</FirstName>
     <DateOfBirth>1982-08-18T00:00:00</DateOfBirth>
     <PlaceOfBirth>Phoenix</PlaceOfBirth>
@@ -52,7 +52,7 @@
   </UserModel>
   <UserModel>
     <ID>6</ID>
-    <Username>MAMA</Username>
+    <Username>emy</Username>
     <Password>passwordghi</Password>
     <LastName>Wilson</LastName>
     <FirstName>Emily</FirstName>

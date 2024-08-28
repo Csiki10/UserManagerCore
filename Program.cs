@@ -10,6 +10,12 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 builder.Services.AddKendo();
+builder.Services.AddLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddConsole();
+    logging.AddDebug();
+});
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 // Add session support

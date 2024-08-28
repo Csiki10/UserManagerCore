@@ -14,7 +14,6 @@
         .HtmlAttributes(new { action = "Login", method = "POST" })
         .Validatable(v =>
         {
-            v.ValidateOnBlur(true);
             v.ValidationSummary(vs => vs.Enable(false));
         })
         .Items(items =>

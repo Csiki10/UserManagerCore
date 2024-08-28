@@ -2,8 +2,8 @@
 2;smith1;password456;Smith;Alice;1990-03-22;Chicago;San Francisco
 3;bob;password789;teddy;Bob;1978-11-30;Houston;Dallas
 4;asd;passwordabc;Miller;Catherine;1995-01-05;Philadelphia;New York
-5;djohnson11;passworddef;Johnson11;David;1982-08-18;Phoenix;Seattle
-6;MAMA;passwordghi;Wilson;Emily;1987-09-25;San Antonio;Austin
+5;jonny;passworddef;Johnson;David;1982-08-18;Phoenix;Seattle
+6;emy;passwordghi;Wilson;Emily;1987-09-25;San Antonio;Austin
 7;fwhite;passwordjkl;White;Frank;1992-04-12;San Diego;Miami
 8;glong;passwordmno;Long;Grace;1975-06-30;Boston;Portland
 9;hmorris1;passwordpqr;Morris;Hannah;2000-12-07;Denver;Las Vegas

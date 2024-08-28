@@ -2,6 +2,7 @@
 using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Logging;
 using System.Globalization;
 using UserManagerCore.Helpers;
 using UserManagerCore.Models;
@@ -13,10 +14,11 @@ namespace UserManagerCore.Controllers
     public class UsersController : Controller
     {
         private readonly IUserRepository _userRepository;
-
-        public UsersController(IUserRepository userRepo)
+        private readonly ILogger<UsersController> _logger;
+        public UsersController(IUserRepository userRepo, ILogger<UsersController> logger)
         {
             _userRepository = userRepo;
+            _logger = logger;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -60,18 +62,28 @@ namespace UserManagerCore.Controllers
                     return RedirectToAction("Index", "Users");
                 }
 
-                // Invalid login attempt
-                ModelState.AddModelError("", res.Error);
+                if (res.State == LoginState.InvalidPassword)
+                {
+                    ModelState.AddModelError("Password", res.Error);
+
+                }
+
+                if (res.State == LoginState.InvalidUserName)
+                {
+                    ModelState.AddModelError("Username", res.Error);
+                }
+
                 return View(model);
             }
             catch (Exception e)
             {
-                // to errorhandling
-                Console.WriteLine(e.Message);
+                _logger.LogError(e, "An error occurred while logging in user {Username}", model.Username);
+                ModelState.AddModelError("", "An unexpected error occurred. Please try again.");
                 return View(model);
             }
         }
 
+        [AuthorizeUser]
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
@@ -89,8 +101,7 @@ namespace UserManagerCore.Controllers
             }
             catch (Exception e)
             {
-
-                Console.WriteLine(e.Message);
+                _logger.LogError(e, "An error occurred while saving users to XML.");
                 return RedirectToAction("Index", "Users");
             }   
         }
@@ -123,7 +134,7 @@ namespace UserManagerCore.Controllers
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                _logger.LogError(e, "An error occurred while retrieving user {UserId} for editing.", id);
                 return RedirectToAction("Index", "Users");
             }
             
@@ -156,7 +167,7 @@ namespace UserManagerCore.Controllers
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                _logger.LogError(e, "An error occurred while updating user {UserId}.", model.ID);
                 return RedirectToAction("Index", "Users");
             }      
         }

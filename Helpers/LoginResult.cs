@@ -2,9 +2,9 @@
 {
     public enum LoginState
     {
-        Succes,
-        Error,
-        Invalid
+        Succes = 0,
+        InvalidPassword = 1,
+        InvalidUserName = 2
     }
     public class LoginResult
     {
