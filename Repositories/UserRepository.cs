@@ -119,5 +119,25 @@ namespace UserManagerCore.Repositories
                 serializer.Serialize(writer, users);
             }
         }
+
+        public void EditUser(UserModel user)
+        {
+            var users = ReadUsersFromFile();
+            var userToUpdate = users.SingleOrDefault(x => x.ID == user.ID);
+
+            if (userToUpdate == null)
+            {
+                throw new Exception("User not found with id: " + user.ID);
+            }
+
+            userToUpdate.Username = user.Username;
+            userToUpdate.LastName = user.LastName;
+            userToUpdate.FirstName = user.FirstName;
+            userToUpdate.DateOfBirth = user.DateOfBirth;
+            userToUpdate.PlaceOfBirth = user.PlaceOfBirth;
+            userToUpdate.PlaceOfResidence = user.PlaceOfResidence;
+
+            SaveUsersToFile(users);
+        }
     }
 }

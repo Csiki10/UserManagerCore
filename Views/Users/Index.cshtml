@@ -3,9 +3,11 @@
 @{
     ViewData["Title"] = "Users";
 }
+
 <div class="form-group">
     <input class="form-control grid-search mb-2" type="search" name="name" value="" placeholder="Search for user..." />
 </div>
+
 @(Html.Kendo().Grid<UserModel>()
       .Name("usersGrid")
       @*  .ToolBar(toolbar =>
@@ -14,7 +16,6 @@
       }) *@
       .Columns(columns =>
       {
-          columns.Select().Width(50);
           columns.Bound(u => u.ID).Title("ID").Width(50);
           columns.Bound(u => u.Username).Title("Username");
           columns.Bound(u => u.LastName).Title("Last Name");
@@ -27,19 +28,19 @@
       .Sortable()  
       .Filterable() 
       .Scrollable()
-      .Selectable(selectable => selectable.Mode(GridSelectionMode.Single))  // Enable single row selection
+      .Selectable(selectable => selectable.Mode(GridSelectionMode.Single))
       .DataSource(dataSource => dataSource
           .Ajax()
           .PageSize(10)
           .Read(read => read.Action("Users_Read", "Users"))
       )
 )
-<div class="form-group mt-2 text-end">
-    
+
+<div class="form-group mt-2 text-end">  
     <button id="saveToXmlBtn" class="btn btn-primary mb-2">Save to XML</button>
     <button id="editUserBtn" class="btn btn-primary mb-2">Edit user</button>
 </div>
 
 @section Scripts {
-    <script type="text/javascript" src="./js/site.js"></script>
+    <script type="text/javascript" src="./js/site.js"></script>  
 }

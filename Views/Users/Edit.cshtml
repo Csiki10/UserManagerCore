@@ -17,13 +17,10 @@
     .Items(items =>
     {
         items.AddGroup().Items(i =>
-        {
-            i.Add().Field(f => f.ID)
-                .Editor(e => e.Hidden());
+        {   
             i.Add()
                 .Field(f => f.Username)
                 .Label(l => l.Text("Username:"));
-
             i.Add()
                 .Field(f => f.LastName)
                 .Label(l => l.Text("Last Name:"));
@@ -34,7 +31,7 @@
 
             i.Add()
                 .Field(f => f.DateOfBirth)
-                .Editor(e => e.DatePicker())  // Use Kendo DatePicker for date input
+                .Editor(e => e.DatePicker())
                 .Label(l => l.Text("Date of Birth:"));
 
             i.Add()
@@ -44,6 +41,8 @@
             i.Add()
                 .Field(f => f.PlaceOfResidence)
                 .Label(l => l.Text("Place of Residence:"));
+            i.Add().Field(f => f.ID)
+                .Editor(e => e.Hidden());
         });
     })
 )

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    const url = "https://localhost:61204";
     var searchInput = $('.grid-search');
 
     searchInput.on('keyup', function () {
@@ -24,8 +24,9 @@ $(document).ready(function () {
     });
 
     $("#saveToXmlBtn").on("click", function () {
+
         $.ajax({
-            url: '@Url.Action("SaveToXml", "Users")',
+            url: `${url}/Users/SaveToXml`,
             type: 'POST',
             success: function () {
                 alert("Data saved to XML successfully.");
@@ -37,6 +38,7 @@ $(document).ready(function () {
     });
 
     $("#editUserBtn").click(function () {
+
         var grid = $("#usersGrid").data("kendoGrid");
         var selectedItem = grid.dataItem(grid.select());
 

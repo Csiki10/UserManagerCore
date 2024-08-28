@@ -5,6 +5,7 @@ namespace UserManagerCore.Repositories
 {
     public interface IUserRepository
     {
+        void EditUser(UserModel user);
         UserModel GetUser(int id);
         LoginResult LoginUser(string userName, string password);
         List<UserModel> ReadUsersFromFile();

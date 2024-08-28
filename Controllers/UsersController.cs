@@ -3,8 +3,8 @@ using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Globalization;
-using System.Xml.Serialization;
 using UserManagerCore.Helpers;
+using UserManagerCore.Models;
 using UserManagerCore.Repositories;
 using UserManagerCore.ViewModels;
 
@@ -79,6 +79,7 @@ namespace UserManagerCore.Controllers
         }
 
         [HttpPost]
+        [AuthorizeUser]
         public IActionResult SaveToXml()
         {
             try
@@ -91,12 +92,11 @@ namespace UserManagerCore.Controllers
 
                 Console.WriteLine(e.Message);
                 return RedirectToAction("Index", "Users");
-            }
-
-            
+            }   
         }
 
         [HttpGet]
+        [AuthorizeUser]
         public IActionResult Edit(int id)
         {
             try
@@ -130,6 +130,7 @@ namespace UserManagerCore.Controllers
         }
 
         [HttpPost]
+        [AuthorizeUser]
         public IActionResult Edit(EditUserViewModel model)
         {
             if (!ModelState.IsValid)
@@ -139,23 +140,17 @@ namespace UserManagerCore.Controllers
 
             try
             {
-                // todo refactore edit
-                var users = _userRepository.ReadUsersFromFile();
-                var user = users.SingleOrDefault(x => x.ID == model.ID);
-
-                if (user == null)
+                // Itt lehetne szebb DTO / egyéb átadás konverzió
+                _userRepository.EditUser(new UserModel
                 {
-                    return NotFound();
-                }
-
-                user.Username = model.Username;
-                user.LastName = model.LastName;
-                user.FirstName = model.FirstName;
-                user.DateOfBirth = model.DateOfBirth;
-                user.PlaceOfBirth = model.PlaceOfBirth;
-                user.PlaceOfResidence = model.PlaceOfResidence;
-
-                _userRepository.SaveUsersToFile(users);
+                    ID = model.ID,
+                    Username = model.Username,
+                    LastName = model.LastName,
+                    FirstName = model.FirstName,
+                    DateOfBirth = model.DateOfBirth,
+                    PlaceOfBirth = model.PlaceOfBirth,
+                    PlaceOfResidence = model.PlaceOfResidence
+                });
 
                 return RedirectToAction("Index");
             }
