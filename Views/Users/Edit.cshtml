@@ -6,7 +6,8 @@
 
 <h2>Edit User</h2>
 
-@(Html.Kendo().Form<UserManagerCore.ViewModels.EditUserViewModel>()
+@(
+Html.Kendo().Form<UserManagerCore.ViewModels.EditUserViewModel>()
     .Name("editForm")
     .HtmlAttributes(new { action = "Edit", method = "post" })
     .Validatable(v =>
@@ -17,7 +18,7 @@
     .Items(items =>
     {
         items.AddGroup().Items(i =>
-        {   
+        {
             i.Add()
                 .Field(f => f.Username);
 
@@ -27,11 +28,18 @@
             i.Add()
                 .Field(f => f.FirstName);
 
+            i.Add()
+                .Field(f => f.PhoneNumber)
+                .Editor(e =>
+                {
+                    e.MaskedTextBox()
+                    .Mask("000-000-0000");
+                });
+
             i.Add().Field(f => f.DateOfBirth)
                 .Editor(e =>
                 {
-                    e.DatePicker();
-                    e.MaskedTextBox().Mask("00/00/0000");
+
                 });
 
             i.Add()

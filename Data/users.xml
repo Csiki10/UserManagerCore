@@ -6,6 +6,7 @@
     <Password>asd123</Password>
     <LastName>Doe</LastName>
     <FirstName>John</FirstName>
+    <PhoneNumber>555-123-4567</PhoneNumber>
     <DateOfBirth>1985-07-15T00:00:00</DateOfBirth>
     <PlaceOfBirth>New York</PlaceOfBirth>
     <PlaceOfResidence>Los Angeles</PlaceOfResidence>
@@ -16,6 +17,7 @@
     <Password>password456</Password>
     <LastName>Smith</LastName>
     <FirstName>Alice</FirstName>
+    <PhoneNumber>555-234-5678</PhoneNumber>
     <DateOfBirth>1990-03-22T00:00:00</DateOfBirth>
     <PlaceOfBirth>Chicago</PlaceOfBirth>
     <PlaceOfResidence>San Francisco</PlaceOfResidence>
@@ -26,6 +28,7 @@
     <Password>password789</Password>
     <LastName>teddy</LastName>
     <FirstName>Bob</FirstName>
+    <PhoneNumber>555-345-6789</PhoneNumber>
     <DateOfBirth>1978-11-30T00:00:00</DateOfBirth>
     <PlaceOfBirth>Houston</PlaceOfBirth>
     <PlaceOfResidence>Dallas</PlaceOfResidence>
@@ -36,6 +39,7 @@
     <Password>passwordabc</Password>
     <LastName>Miller</LastName>
     <FirstName>Catherine</FirstName>
+    <PhoneNumber>555-456-7890</PhoneNumber>
     <DateOfBirth>1995-01-05T00:00:00</DateOfBirth>
     <PlaceOfBirth>Philadelphia</PlaceOfBirth>
     <PlaceOfResidence>New York</PlaceOfResidence>
@@ -46,17 +50,19 @@
     <Password>passworddef</Password>
     <LastName>Johnson</LastName>
     <FirstName>David</FirstName>
+    <PhoneNumber>555-567-8901</PhoneNumber>
     <DateOfBirth>1982-08-18T00:00:00</DateOfBirth>
     <PlaceOfBirth>Phoenix</PlaceOfBirth>
     <PlaceOfResidence>Seattle</PlaceOfResidence>
   </UserModel>
   <UserModel>
     <ID>6</ID>
-    <Username>emy</Username>
+    <Username>emy1111</Username>
     <Password>passwordghi</Password>
     <LastName>Wilson</LastName>
     <FirstName>Emily</FirstName>
-    <DateOfBirth>1987-09-25T00:00:00</DateOfBirth>
+    <PhoneNumber>555-678-9012</PhoneNumber>
+    <DateOfBirth>2024-08-06T00:00:00</DateOfBirth>
     <PlaceOfBirth>San Antonio</PlaceOfBirth>
     <PlaceOfResidence>Austin</PlaceOfResidence>
   </UserModel>
@@ -66,8 +72,9 @@
     <Password>passwordjkl</Password>
     <LastName>White</LastName>
     <FirstName>Frank</FirstName>
-    <DateOfBirth>1992-04-12T00:00:00</DateOfBirth>
-    <PlaceOfBirth>San Diego</PlaceOfBirth>
+    <PhoneNumber>555-789-0123</PhoneNumber>
+    <DateOfBirth>2024-08-15T00:00:00</DateOfBirth>
+    <PlaceOfBirth>Houston</PlaceOfBirth>
     <PlaceOfResidence>Miami</PlaceOfResidence>
   </UserModel>
   <UserModel>
@@ -76,6 +83,7 @@
     <Password>passwordmno</Password>
     <LastName>Long</LastName>
     <FirstName>Grace</FirstName>
+    <PhoneNumber>111-111-1111</PhoneNumber>
     <DateOfBirth>1975-06-30T00:00:00</DateOfBirth>
     <PlaceOfBirth>Boston</PlaceOfBirth>
     <PlaceOfResidence>Portland</PlaceOfResidence>
@@ -86,6 +94,7 @@
     <Password>passwordpqr</Password>
     <LastName>Morris</LastName>
     <FirstName>Hannah</FirstName>
+    <PhoneNumber>555-901-2345</PhoneNumber>
     <DateOfBirth>2000-12-07T00:00:00</DateOfBirth>
     <PlaceOfBirth>Denver</PlaceOfBirth>
     <PlaceOfResidence>Las Vegas</PlaceOfResidence>
@@ -96,6 +105,7 @@
     <Password>passwordstu</Password>
     <LastName>Martin</LastName>
     <FirstName>Isaac</FirstName>
+    <PhoneNumber>555-012-3456</PhoneNumber>
     <DateOfBirth>1998-10-15T00:00:00</DateOfBirth>
     <PlaceOfBirth>Detroit</PlaceOfBirth>
     <PlaceOfResidence>Atlanta</PlaceOfResidence>

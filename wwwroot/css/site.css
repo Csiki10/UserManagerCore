@@ -37,6 +37,10 @@ p .k-button {
 .k-state-active .label {
     font-size: 1em;
 }
+
+.k-table-row {
+    cursor: pointer;
+}
 /* #endregion */
 
 @media (max-width: 767px) {

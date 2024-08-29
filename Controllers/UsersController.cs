@@ -125,9 +125,12 @@ namespace UserManagerCore.Controllers
                     Username = user.Username,
                     LastName = user.LastName,
                     FirstName = user.FirstName,
+                    PhoneNumber = user.PhoneNumber,
                     DateOfBirth = user.DateOfBirth,
                     PlaceOfBirth = user.PlaceOfBirth,
-                    PlaceOfResidence = user.PlaceOfResidence
+                    PlaceOfResidence = user.PlaceOfResidence,
+                    PlacesOfBirth = _userRepository.GetPlacesOfBirth(),
+                    PlacesOfResidence = _userRepository.GetPlacesOfResidence()
                 };
 
                 return View(model);
@@ -151,13 +154,13 @@ namespace UserManagerCore.Controllers
 
             try
             {
-                // Itt lehetne szebb DTO / egyéb átadás konverzió
                 _userRepository.EditUser(new UserModel
                 {
                     ID = model.ID,
                     Username = model.Username,
                     LastName = model.LastName,
                     FirstName = model.FirstName,
+                    PhoneNumber = model.PhoneNumber,
                     DateOfBirth = model.DateOfBirth,
                     PlaceOfBirth = model.PlaceOfBirth,
                     PlaceOfResidence = model.PlaceOfResidence

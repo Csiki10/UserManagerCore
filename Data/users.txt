@@ -1,10 +1,10 @@
-1;jdoe;asd123;Doe;John;1985-07-15;New York;Los Angeles
-2;smith1;password456;Smith;Alice;1990-03-22;Chicago;San Francisco
-3;bob;password789;teddy;Bob;1978-11-30;Houston;Dallas
-4;asd;passwordabc;Miller;Catherine;1995-01-05;Philadelphia;New York
-5;jonny;passworddef;Johnson;David;1982-08-18;Phoenix;Seattle
-6;emy;passwordghi;Wilson;Emily;1987-09-25;San Antonio;Austin
-7;fwhite;passwordjkl;White;Frank;1992-04-12;San Diego;Miami
-8;glong;passwordmno;Long;Grace;1975-06-30;Boston;Portland
-9;hmorris1;passwordpqr;Morris;Hannah;2000-12-07;Denver;Las Vegas
-10;imartin;passwordstu;Martin;Isaac;1998-10-15;Detroit;Atlanta
+1;jdoe;asd123;Doe;John;1985-07-15;New York;Los Angeles;555-123-4567
+2;smith;password456;Smith;Alice;1990-03-22;Chicago;San Francisco;555-234-5678
+3;bob;password789;teddy;Bob;1978-11-30;Houston;Dallas;555-345-6789
+4;asd;passwordabc;Miller;Catherine;1995-01-05;Philadelphia;New York;555-456-7890
+5;jonny;passworddef;Johnson;David;1982-08-18;Phoenix;Seattle;555-567-8901
+6;emy;passwordghi;Wilson;Emily;2024-08-06;San Antonio;Austin;555-678-9012
+7;fwhite;passwordjkl;White;Frank;2024-08-15;Houston;Miami;555-789-0123
+8;glong;passwordmno;Long;Grace;1975-06-30;Boston;Portland;111-111-1111
+9;hmorris1;passwordpqr;Morris;Hannah;2000-12-07;Denver;Las Vegas;555-901-2345
+10;imartin;passwordstu;Martin;Isaac;1998-10-15;Detroit;Atlanta;555-012-3456

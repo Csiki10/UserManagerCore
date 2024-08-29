@@ -16,6 +16,7 @@
             columns.Bound(u => u.Username).Title("Username");
             columns.Bound(u => u.LastName).Title("Last Name");
             columns.Bound(u => u.FirstName).Title("First Name");
+            columns.Bound(u => u.PhoneNumber).Title("Phone Number");
             columns.Bound(u => u.DateOfBirth).Title("Date of Birth").Format("{0:yyyy-MM-dd}");
             columns.Bound(u => u.PlaceOfBirth).Title("Place of Birth");
             columns.Bound(u => u.PlaceOfResidence).Title("Place of Residence");
@@ -26,9 +27,9 @@
         .Scrollable()
         .Selectable(selectable => selectable.Mode(GridSelectionMode.Single))
         .DataSource(dataSource => dataSource
-        .Ajax()
-        .PageSize(10)
-        .Read(read => read.Action("Users_Read", "Users"))
+            .Ajax()
+            .PageSize(10)
+            .Read(read => read.Action("Users_Read", "Users"))
         )
     )
 </div>

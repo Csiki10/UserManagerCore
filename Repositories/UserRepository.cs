@@ -36,7 +36,8 @@ namespace UserManagerCore.Repositories
                     FirstName = parts[4],
                     DateOfBirth = DateTime.ParseExact(parts[5], "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     PlaceOfBirth = parts[6],
-                    PlaceOfResidence = parts[7]
+                    PlaceOfResidence = parts[7],
+                    PhoneNumber = parts[8]
                 });
             }
 
@@ -97,7 +98,7 @@ namespace UserManagerCore.Repositories
 
         public void SaveUsersToFile(List<UserModel> users)
         {
-            var lines = users.Select(u => $"{u.ID};{u.Username};{u.Password};{u.LastName};{u.FirstName};{u.DateOfBirth:yyyy-MM-dd};{u.PlaceOfBirth};{u.PlaceOfResidence}");
+            var lines = users.Select(u => $"{u.ID};{u.Username};{u.Password};{u.LastName};{u.FirstName};{u.DateOfBirth:yyyy-MM-dd};{u.PlaceOfBirth};{u.PlaceOfResidence};{u.PhoneNumber}");
 
             System.IO.File.WriteAllLines(filePath, lines);
         }
@@ -128,6 +129,7 @@ namespace UserManagerCore.Repositories
             userToUpdate.Username = user.Username;
             userToUpdate.LastName = user.LastName;
             userToUpdate.FirstName = user.FirstName;
+            userToUpdate.PhoneNumber = user.PhoneNumber;
             userToUpdate.DateOfBirth = user.DateOfBirth;
             userToUpdate.PlaceOfBirth = user.PlaceOfBirth;
             userToUpdate.PlaceOfResidence = user.PlaceOfResidence;
