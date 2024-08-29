@@ -22,12 +22,11 @@
             .Items(i =>
             {
                 i.Add()
-            .Field(f => f.Username)
-            .Label(l => l.Text("User name:"));
+            .Field(f => f.Username);
+
                 i.Add()
             .Field(f => f.Password)
-            .InputHtmlAttributes(new { type = "password" })
-            .Label(l => l.Text("Password:"));
+            .InputHtmlAttributes(new { type = "password" });
             });
         })
     )

@@ -19,37 +19,33 @@
         items.AddGroup().Items(i =>
         {   
             i.Add()
-                .Field(f => f.Username)
-                .Label(l => l.Text("Username:"));
-            i.Add()
-                .Field(f => f.LastName)
-                .Label(l => l.Text("Last Name:"));
+                .Field(f => f.Username);
 
             i.Add()
-                .Field(f => f.FirstName)
-                .Label(l => l.Text("First Name:"));
+                .Field(f => f.LastName);
+
+            i.Add()
+                .Field(f => f.FirstName);
 
             i.Add().Field(f => f.DateOfBirth)
                 .Editor(e =>
                 {
                     e.DatePicker();
-                    e.MaskedTextBox().Mask("00/00/0000"); 
-                })
-                .Label(l => l.Text("Date of Birth"));
+                    e.MaskedTextBox().Mask("00/00/0000");
+                });
 
             i.Add()
                 .Field(f => f.PlaceOfBirth)
                 .Editor(e => e.DropDownList()
                     .BindTo(Model.PlacesOfBirth)
-                    .Value(Model.PlaceOfBirth))
-                .Label(l => l.Text("Place of Birth:"));
+                    .Value(Model.PlaceOfBirth));
 
             i.Add()
                 .Field(f => f.PlaceOfResidence)
                 .Editor(e => e.DropDownList()
                     .BindTo(Model.PlacesOfResidence)
-                    .Value(Model.PlaceOfResidence)) 
-                .Label(l => l.Text("Place of Residence:"));
+                    .Value(Model.PlaceOfResidence));
+
 
             i.Add().Field(f => f.ID)
                 .Editor(e => e.Hidden());
