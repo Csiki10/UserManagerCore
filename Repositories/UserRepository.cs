@@ -134,5 +134,42 @@ namespace UserManagerCore.Repositories
 
             SaveUsersToFile(users);
         }
+
+        public IEnumerable<string> GetPlacesOfBirth()
+        {
+            return new List<string>()
+            {
+                "New York",
+                "Los Angeles",
+                "Chicago",
+                "Houston",
+                "Phoenix",
+                "Philadelphia",
+                "Antonio",
+                "Diego",
+                "Boston",
+                "Denver",
+                "Detroit",
+                "San Antonio"
+            };
+        }
+
+        public IEnumerable<string> GetPlacesOfResidence()
+        {
+            return new List<string>()
+            {
+                "San Francisco",
+                "Miami",
+                "Austin",
+                "Seattle",
+                "Denver",
+                "Dallas",
+                "Portland",
+                "Las Vegas",
+                "Atlanta",
+                "New York",
+                "Los Angeles"
+            };
+        }
     }
 }

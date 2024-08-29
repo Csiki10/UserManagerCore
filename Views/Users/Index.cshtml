@@ -7,35 +7,31 @@
 <div class="form-group">
     <input class="form-control grid-search mb-2" type="text" name="name" value="" placeholder="Search for user..." />
 </div>
-
-@(Html.Kendo().Grid<UserModel>()
-      .Name("usersGrid")
-      @*  .ToolBar(toolbar =>
-      {
-          toolbar.Custom().Text("Edit Selected User").HtmlAttributes(new { id = "editUserBtn", @class = "btn btn-primary" });
-      }) *@
-      .Columns(columns =>
-      {
-          columns.Bound(u => u.ID).Title("ID").Width(50);
-          columns.Bound(u => u.Username).Title("Username");
-          columns.Bound(u => u.LastName).Title("Last Name");
-          columns.Bound(u => u.FirstName).Title("First Name");
-          columns.Bound(u => u.DateOfBirth).Title("Date of Birth").Format("{0:yyyy-MM-dd}");
-          columns.Bound(u => u.PlaceOfBirth).Title("Place of Birth");
-          columns.Bound(u => u.PlaceOfResidence).Title("Place of Residence");
-      })
-      .Pageable() 
-      .Sortable()  
-      .Filterable() 
-      .Scrollable()
-      .Selectable(selectable => selectable.Mode(GridSelectionMode.Single))
-      .DataSource(dataSource => dataSource
-          .Ajax()
-          .PageSize(10)
-          .Read(read => read.Action("Users_Read", "Users"))
-      )
-)
-
+<div>
+    @(Html.Kendo().Grid<UserModel>()
+        .Name("usersGrid")
+        .Columns(columns =>
+        {
+            columns.Bound(u => u.ID).Title("ID").Width(50);
+            columns.Bound(u => u.Username).Title("Username");
+            columns.Bound(u => u.LastName).Title("Last Name");
+            columns.Bound(u => u.FirstName).Title("First Name");
+            columns.Bound(u => u.DateOfBirth).Title("Date of Birth").Format("{0:yyyy-MM-dd}");
+            columns.Bound(u => u.PlaceOfBirth).Title("Place of Birth");
+            columns.Bound(u => u.PlaceOfResidence).Title("Place of Residence");
+        })
+        .Pageable()
+        .Sortable()
+        .Filterable()
+        .Scrollable()
+        .Selectable(selectable => selectable.Mode(GridSelectionMode.Single))
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(10)
+        .Read(read => read.Action("Users_Read", "Users"))
+        )
+    )
+</div>
 <div class="form-group mt-2 text-end">  
     <button id="saveToXmlBtn" class="btn btn-primary mb-2">Save to XML</button>
     <button id="editUserBtn" class="btn btn-primary mb-2">Edit user</button>

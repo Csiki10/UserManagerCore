@@ -29,24 +29,30 @@
                 .Field(f => f.FirstName)
                 .Label(l => l.Text("First Name:"));
 
-            i.Add()
-                .Field(f => f.DateOfBirth)
-                .Editor(e => e.DatePicker())
-                .Label(l => l.Text("Date of Birth:"));
+            i.Add().Field(f => f.DateOfBirth)
+                .Editor(e =>
+                {
+                    e.DatePicker();
+                    e.MaskedTextBox().Mask("00/00/0000"); 
+                })
+                .Label(l => l.Text("Date of Birth"));
 
             i.Add()
                 .Field(f => f.PlaceOfBirth)
+                .Editor(e => e.DropDownList()
+                    .BindTo(Model.PlacesOfBirth)
+                    .Value(Model.PlaceOfBirth))
                 .Label(l => l.Text("Place of Birth:"));
 
             i.Add()
                 .Field(f => f.PlaceOfResidence)
+                .Editor(e => e.DropDownList()
+                    .BindTo(Model.PlacesOfResidence)
+                    .Value(Model.PlaceOfResidence)) 
                 .Label(l => l.Text("Place of Residence:"));
+
             i.Add().Field(f => f.ID)
                 .Editor(e => e.Hidden());
         });
     })
 )
-
-@* @section Scripts {
-    @(Html.Kendo().Validator().For("#editForm"))
-} *@
